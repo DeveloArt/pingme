@@ -16,7 +16,7 @@ const Profile = () => {
       marginTop: 16,
     },
     avatar: {
-      backgroundColor: theme.colors.background,
+      backgroundColor: 'transparent',
     },
     userData: {
       marginLeft: 24,
@@ -37,8 +37,6 @@ const Profile = () => {
       marginBottom: 24,
     },
     tableWrapper: {
-      width: "100%",
-      height: "100%",
       borderWidth: 1,
       borderColor: theme.colors.gray,
       borderRadius: 4,
@@ -85,7 +83,7 @@ const Profile = () => {
   });
 
   return (
-    <Screen>
+    <Screen isProfile>
       <SafeAreaView>
         <View style={styles.userAccount}>
           <Avatar.Image

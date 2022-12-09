@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyleSheet, View, Text, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Button, useTheme, TextInput } from "react-native-paper";
@@ -7,6 +7,8 @@ import { handleSignUp } from "../firebase/handleSignUp";
 import { handleLogin } from "../firebase/handleLogIn";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PingMeIcon from "../assets/Icons/PingMeIcon";
+import { AuthContext } from '../contextStore/AuthContext';
+import { useContext } from 'react';
 
 const welcomeText = "Fajnie, że jesteś!";
 const welcomeText2 =
@@ -16,15 +18,17 @@ const Login = () => {
   const { navigate } = useNavigation();
   const { height, width } = useWindowDimensions();
   const theme = useTheme();
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredPassword, setEnteredPassword] = useState("");
-  const [isSigned, setIsSigned] = useState(false);
-
+  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState('');
+  const authCtx = useContext(AuthContext);
+  const isSigned = authCtx.user
+  
   function submitHandler() {
     if (!isSigned) {
       handleSignUp(enteredEmail, enteredPassword, navigate);
     } else {
-      handleLogin(enteredEmail, enteredPassword, navigate);
+      const user = handleLogin(enteredEmail, enteredPassword, navigate);
+      authCtx.setUserId(user.user)
     }
   }
 
@@ -59,7 +63,7 @@ const Login = () => {
       <View style={styles.welcomeSetionWrapper}>
         <Text style={styles.welcomeSetion}>{welcomeText}</Text>
         <Text style={styles.welcomeSetion}>{`${
-          isSigned ? "Zaloguj się" : "Zarejestruj się"
+          !!isSigned ? "Zaloguj się" : "Zarejestruj się"
         }${welcomeText2}`}</Text>
       </View>
       <Text style={styles.text}>E-mail</Text>
@@ -98,7 +102,7 @@ const Login = () => {
         onPress={submitHandler}
         style={styles.button}
       >
-        {isSigned ? "ZALOGUJ" : "ZAREJESTRUJ"}
+        {!!isSigned ? "ZALOGUJ" : "ZAREJESTRUJ"}
       </Button>
     </SafeAreaView>
   );
