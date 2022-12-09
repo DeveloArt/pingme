@@ -1,0 +1,84 @@
+[{
+    "name": "Aleksandra Fiałkowska",
+    "rank": "nowicjusz",
+    "matches": [
+      {"opponent": "222222222  222222 ", "wygrana": "true"},
+      {"opponent": "3333 33333333", "wygrana": "true" },
+      {"opponent": "4444 444444", "wygrana": "false" },
+      {"opponent": "5555555 5555555", "wygrana": "true" }
+      ],
+    "pending": [
+      {"opponent": "aaaaaaaaa aaaaa", "wygrana": "false"},
+      {"opponent": "ssss sssssss ", "wygrana": "true"},
+      {"opponent": "bbbbb bbbbbb", "wygrana": "true" },
+      {"opponent": "ccccc ccccccccc", "wygrana": "false" },
+      {"opponent": "ddddddd ddddddd", "wygrana": "true" }
+      ],
+    "wyslane": [
+      {"opponent": "ttttt ttttttttt", "zaakcpeotwane": "false"},
+      {"opponent": "hhhhhhh hhhhhhh", "zaakcpeotwane": "true"},
+      {"opponent": "uuuuuuuu uuuuuuu", "zaakcpeotwane": "true"}
+      ],
+    "otrzymane" : [
+      {"opponent": "ttttt ttttttttt", "zaakcpeotwane": "false"},
+      {"opponent": "hhhhhhh hhhhhhh", "zaakcpeotwane": "true"},
+      {"opponent": "uuuuuuuu uuuuuuu", "zaakcpeotwane": "true"}
+      ]
+  },
+  {
+    "name": "Kamil Zieliński",
+    "ranga": "nowicjusz",
+    "mecze": [
+      {"przeciwnik": "1111 111111", "wygrana": "true"},
+      {"przeciwnik": "222222222  222222 ", "wygrana": "false"},
+      {"przeciwnik": "3333 33333333", "wygrana": "true" },
+      {"przeciwnik": "4444 444444", "wygrana": "false" },
+      {"przeciwnik": "5555555 5555555", "wygrana": "false" }
+      ],
+    "oczekujace": [
+      {"przeciwnik": "aaaaaaaaa aaaaa", "wygrana": "false"},
+      {"przeciwnik": "ssss sssssss ", "wygrana": "true"},
+      {"przeciwnik": "bbbbb bbbbbb", "wygrana": "true" },
+      {"przeciwnik": "ccccc ccccccccc", "wygrana": "false" },
+      {"przeciwnik": "ddddddd ddddddd", "wygrana": "true" }
+      ],
+    "wyslane": [
+      {"przeciwnik": "ttttt ttttttttt", "zaakcpeotwane": "false"},
+      {"przeciwnik": "hhhhhhh hhhhhhh", "zaakcpeotwane": "true"},
+      {"przeciwnik": "uuuuuuuu uuuuuuu", "zaakcpeotwane": "true"}
+      ],
+    "otrzymane" : [
+      {"przeciwnik": "ttttt ttttttttt", "zaakcpeotwane": "false"},
+      {"przeciwnik": "hhhhhhh hhhhhhh", "zaakcpeotwane": "true"},
+      {"przeciwnik": "uuuuuuuu uuuuuuu", "zaakcpeotwane": "true"}
+      ]
+  },
+  {
+    "name": "Szymon Jaskiewicz",
+    "ranga": "nowicjusz",
+    "mecze": [
+      {"przeciwnik": "1111 111111", "wygrana": "true"},
+      {"przeciwnik": "222222222  222222 ", "wygrana": "true"},
+      {"przeciwnik": "3333 33333333", "wygrana": "true" },
+      {"przeciwnik": "4444 444444", "wygrana": "false" },
+      {"przeciwnik": "5555555 5555555", "wygrana": "false" }
+      ],
+    "oczekujace": [
+      {"przeciwnik": "aaaaaaaaa aaaaa", "wygrana": "false"},
+      {"przeciwnik": "ssss sssssss ", "wygrana": "true"},
+      {"przeciwnik": "bbbbb bbbbbb", "wygrana": "true" },
+      {"przeciwnik": "ccccc ccccccccc", "wygrana": "false" },
+      {"przeciwnik": "ddddddd ddddddd", "wygrana": "true" }
+      ],
+    "wyslane": [
+      {"przeciwnik": "ttttt ttttttttt", "zaakcpeotwane": "false"},
+      {"przeciwnik": "hhhhhhh hhhhhhh", "zaakcpeotwane": "true"},
+      {"przeciwnik": "uuuuuuuu uuuuuuu", "zaakcpeotwane": "true"}
+      ],
+    "otrzymane" : [
+      {"przeciwnik": "ttttt ttttttttt", "zaakcpeotwane": "false"},
+      {"przeciwnik": "hhhhhhh hhhhhhh", "zaakcpeotwane": "true"},
+      {"przeciwnik": "uuuuuuuu uuuuuuu", "zaakcpeotwane": "true"}
+      ]
+  }
+]

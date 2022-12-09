@@ -18,6 +18,7 @@ import Login from "../screens/Login";
 import Notification from "../screens/Notification";
 import Profile from "../screens/Profile";
 import Ranking from "../screens/Ranking";
+import FetchingScreen from '../screens/FetchingScreen'
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -91,12 +92,12 @@ function HomeTab() {
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
+       <Stack.Screen
+        name="FetchingScreen"
+        component={FetchingScreen}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="Login"
         component={Login}
@@ -107,8 +108,13 @@ function RootNavigator() {
         component={Home}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
 
-
+      {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
       <Stack.Screen name="Ranking" component={Ranking} />
       <Stack.Screen name="Notification" component={Notification} />
       {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
