@@ -2,20 +2,20 @@ import {
     signInWithEmailAndPassword
   } from 'firebase/auth';
   import { auth } from './config';
-  import { AuthContext } from '../contextStore/AuthContext';
 
 
 export const handleLogin = async (email, password, navigate) => {
-  const authCtx = useContext(AuthContext);
+  let user
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    navigate('Home');
-    const user = userCredential.user;
+    // navigate('Home');
+    user = {user: userCredential.user.uid}
+    addNewUser(user)
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
   });
-  authCtx.setUserId(user)
-  console.log(authCtx.user)
+  
+  return user
 }

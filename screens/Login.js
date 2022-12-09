@@ -7,6 +7,8 @@ import { handleSignUp } from "../firebase/handleSignUp";
 import { handleLogin } from "../firebase/handleLogIn";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PingMeIcon from "../assets/Icons/PingMeIcon";
+import { AuthContext } from '../contextStore/AuthContext';
+import { useContext } from 'react';
 
 const welcomeText = "Fajnie, że jesteś!";
 const welcomeText2 =
@@ -18,13 +20,15 @@ const Login = () => {
   const theme = useTheme();
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
-  const [isSigned, setIsSigned] = useState(true);
+  const authCtx = useContext(AuthContext);
+  const isSigned = authCtx.user
 
   function submitHandler() {
     if (!isSigned) {
       handleSignUp(enteredEmail, enteredPassword, navigate);
     } else {
-      handleLogin(enteredEmail, enteredPassword, navigate);
+      const user = handleLogin(enteredEmail, enteredPassword, navigate);
+      authCtx.setUserId(user.user)
     }
   }
 
