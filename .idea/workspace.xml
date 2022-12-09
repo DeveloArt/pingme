@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01cece58-b589-4ad1-8f5c-5ba7edba5c41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Modals/AddScoreModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Modals/ScoreBoard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Modals/SendInvitationModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/SvgIcons/CloseIcon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Icons/ExitIcon.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/NotificationCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/splash.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Notification.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
