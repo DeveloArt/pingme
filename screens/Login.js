@@ -15,7 +15,7 @@ const Login = () => {
   const theme = useTheme();
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
-  const [isSigned, setIsSigned] = useState(false);
+  const [isSigned, setIsSigned] = useState(true);
 
   
   function updateInputValueHandler(inputType, enteredValue) {
