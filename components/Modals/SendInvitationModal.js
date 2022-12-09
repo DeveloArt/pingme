@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Text, Button, Divider, useTheme, TextInput } from "react-native-paper";
 import CloseIcon from "../SvgIcons/CloseIcon";
 
-const SendInvitationModal = () => {
+const SendInvitationModal = ({ visible }) => {
   const { navigate } = useNavigation();
   const { height, width } = useWindowDimensions();
   const theme = useTheme();
@@ -76,7 +76,7 @@ const SendInvitationModal = () => {
     },
   });
   return (
-    <Modal>
+    <Modal visible={visible}>
       <View style={styles.topSection}>
         <View style={styles.icon}>
           <CloseIcon />

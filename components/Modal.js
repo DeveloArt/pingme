@@ -12,7 +12,7 @@ import {
 } from "react-native-paper";
 import CloseIcon from "./SvgIcons/CloseIcon";
 
-const Modal = ({ children }) => {
+const Modal = ({ children, visible }) => {
   const { width } = useWindowDimensions();
   const theme = useTheme();
 
@@ -31,7 +31,10 @@ const Modal = ({ children }) => {
 
   return (
     <Portal>
-      <PaperModal visible contentContainerStyle={styles.contentContainerStyle}>
+      <PaperModal
+        visible={visible}
+        contentContainerStyle={styles.contentContainerStyle}
+      >
         {children}
       </PaperModal>
     </Portal>
