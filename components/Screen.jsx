@@ -10,11 +10,11 @@ const Screen = ({children}) => {
 	  flex: 1,
 	  width: width,
 	  height: height,
-	  alignItems:'center',
+	  alignItems:'space-between',
+		padding: 24
 	},
 	image: {
 	  flex: 1,
-	  justifyContent: "center"
 	}
   });
   return (
