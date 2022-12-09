@@ -14,6 +14,7 @@
       <change afterPath="$PROJECT_DIR$/firebase/handleSignUp.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/screens/Registry.js" afterDir="false" />
+    <list default="true" id="9c6c0c10-1e79-4804-8d18-c12f73ef4d34" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Modals/AddScoreModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Modals/AddScoreModal.js" afterDir="false" />
@@ -22,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Screen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Screen.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -44,9 +46,40 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
     "ts.external.directory.path": "/snap/phpstorm/306/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external"
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IhC2f0qP0o5aE2Vk9XbOE93czG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/home/pkalinowski/PhpStorm-2022.1.3/PhpStorm-221.5921.28/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c6c0c10-1e79-4804-8d18-c12f73ef4d34" name="Changes" comment="" />
+      <created>1670624227447</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670624227447</updated>
+      <workItem from="1670624228452" duration="757000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
