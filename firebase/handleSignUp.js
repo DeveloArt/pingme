@@ -11,7 +11,7 @@ export const handleSignUp = (email, password, navigate) => {
   };
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      navigate("Home");
+      navigate("Login");
       user = {user: userCredential.user.uid}
       addNewUser(user)
     })

@@ -15,9 +15,7 @@ const FetchingScreen = () => {
     const { navigate } = useNavigation();
     const auth = getAuth();
     // signOut(auth).then(() => {
-    
-    //   }).catch((error) => {
-        
+    //   }).catch((error) => { 
     //   });
 
 const getAllUsers = async () => {
@@ -32,17 +30,12 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     authCtx.setUserId(uid)
-    const users = getAllUsers
-    console.log(users)
-    console.log(uid)
+    const users = getAllUsers()
     navigate('Home')
   } else {
     navigate('Login')
   }
 });
-
-    useEffect(() => {
-    }, [])
 
   return (
 	<ScrollView />
