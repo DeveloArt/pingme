@@ -63,7 +63,7 @@ const Login = () => {
       <View style={styles.welcomeSetionWrapper}>
         <Text style={styles.welcomeSetion}>{welcomeText}</Text>
         <Text style={styles.welcomeSetion}>{`${
-          isSigned ? "Zaloguj się" : "Zarejestruj się"
+          !!isSigned ? "Zaloguj się" : "Zarejestruj się"
         }${welcomeText2}`}</Text>
       </View>
       <Text style={styles.text}>E-mail</Text>
