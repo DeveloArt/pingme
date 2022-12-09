@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyleSheet, View, Text, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Button, useTheme, TextInput } from "react-native-paper";
@@ -22,7 +22,7 @@ const Login = () => {
   const [enteredPassword, setEnteredPassword] = useState('');
   const authCtx = useContext(AuthContext);
   const isSigned = authCtx.user
-
+  
   function submitHandler() {
     if (!isSigned) {
       handleSignUp(enteredEmail, enteredPassword, navigate);
