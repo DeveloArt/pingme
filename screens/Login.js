@@ -102,7 +102,7 @@ const Login = () => {
         onPress={submitHandler}
         style={styles.button}
       >
-        {isSigned ? "ZALOGUJ" : "ZAREJESTRUJ"}
+        {!!isSigned ? "ZALOGUJ" : "ZAREJESTRUJ"}
       </Button>
     </SafeAreaView>
   );
