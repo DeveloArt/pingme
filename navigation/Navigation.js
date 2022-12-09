@@ -25,7 +25,7 @@ const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <RootNavigator />
+      <RootNavigator/>
     </NavigationContainer>
   );
 }
