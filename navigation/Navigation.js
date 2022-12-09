@@ -97,6 +97,7 @@ function RootNavigator() {
         component={FetchingScreen}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="Login"
         component={Login}
@@ -115,7 +116,6 @@ function RootNavigator() {
 
       {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
       <Stack.Screen name="Ranking" component={Ranking} />
-      <Stack.Screen name="Notification" component={Notification} />
       {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
     </Stack.Navigator>
   );
