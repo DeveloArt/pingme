@@ -16,20 +16,14 @@ const welcomeText2 =
 
 const Login = () => {
   const { navigate } = useNavigation();
-  const { height, width } = useWindowDimensions();
   const theme = useTheme();
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const authCtx = useContext(AuthContext);
-  const isSigned = authCtx.user
   
   function submitHandler() {
-    if (!isSigned) {
-      handleSignUp(enteredEmail, enteredPassword, navigate);
-    } else {
       const user = handleLogin(enteredEmail, enteredPassword, navigate);
       authCtx.setUserId(user.user)
-    }
   }
 
   const styles = StyleSheet.create({
@@ -57,14 +51,16 @@ const Login = () => {
     },
   });
 
+  const goTorRegistryPage = () => {
+    navigate('Registry')
+  }
+
   return (
     <SafeAreaView style={styles.screen}>
       <PingMeIcon />
       <View style={styles.welcomeSetionWrapper}>
         <Text style={styles.welcomeSetion}>{welcomeText}</Text>
-        <Text style={styles.welcomeSetion}>{`${
-          !!isSigned ? "Zaloguj się" : "Zarejestruj się"
-        }${welcomeText2}`}</Text>
+        <Text style={styles.welcomeSetion}>{`Zarejestruj się${welcomeText2}`}</Text>
       </View>
       <Text style={styles.text}>E-mail</Text>
       <TextInput
@@ -102,7 +98,14 @@ const Login = () => {
         onPress={submitHandler}
         style={styles.button}
       >
-        {!!isSigned ? "ZALOGUJ" : "ZAREJESTRUJ"}
+      ZALOGUJ SIĘ
+      </Button>
+      <Button
+        textColor={theme.colors.gray}
+        style={styles.textButton}
+        mode="text"
+        onPress={goTorRegistryPage}
+      >ZAREJESTRUJ SIĘ
       </Button>
     </SafeAreaView>
   );

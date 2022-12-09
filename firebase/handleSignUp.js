@@ -5,13 +5,14 @@ import {
 } from 'firebase/firestore';
 
 export const handleSignUp = (email, password, navigate) => {
+  let user
   const addNewUser = (user) => {
     const usersRef = collection(firestore, 'users');
     setDoc(doc(usersRef), user).catch((err) => console.log(err));
   };
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      navigate("Login");
+      navigate("HomeTab");
       user = {user: userCredential.user.uid}
       addNewUser(user)
     })
@@ -20,4 +21,5 @@ export const handleSignUp = (email, password, navigate) => {
       const errorMessage = error.message;
       console.log(errorMessage);
     });
+    return user
 };
