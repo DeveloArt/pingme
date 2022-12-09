@@ -9,6 +9,7 @@ import {
   TextInput,
   IconButton,
 } from "react-native-paper";
+import Colon from "../SvgIcons/Colon";
 
 const ScoreBoard = () => {
   return (
@@ -19,8 +20,45 @@ const ScoreBoard = () => {
           <Text style={styles.score}>0</Text>
         </View>
         <View style={styles.iconButtons}>
-          <IconButton />
-          <IconButton />
+          <IconButton
+            icon={"minus"}
+            onPress={() => {}}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+            disabled
+          />
+          <IconButton
+            icon={"plus"}
+            onPress={() => {}}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+          />
+        </View>
+      </View>
+      <Colon style={{ marginTop: -20 }} />
+      <View style={styles.column}>
+        <Text>Ty</Text>
+        <View style={styles.board}>
+          <Text style={styles.score}>0</Text>
+        </View>
+        <View style={styles.iconButtons}>
+          <IconButton
+            icon={"minus"}
+            onPress={() => {}}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+            disabled
+          />
+          <IconButton
+            icon={"plus"}
+            onPress={() => {}}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+          />
         </View>
       </View>
     </View>
@@ -30,6 +68,8 @@ const ScoreBoard = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
   },
   column: {
     flex: 1,
@@ -51,7 +91,8 @@ const styles = StyleSheet.create({
   },
   iconButtons: {
     flexDirection: "row",
-    justifyContent,
+    justifyContent: "space-between",
+    width: 130,
   },
 });
 
