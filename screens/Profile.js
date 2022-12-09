@@ -13,7 +13,7 @@ const Profile = () => {
   const styles = StyleSheet.create({
     userAccount: {
       flexDirection: "row",
-      marginTop: 16
+      marginTop: 16,
     },
     avatar: {
       backgroundColor: 'transparent',
@@ -83,7 +83,7 @@ const Profile = () => {
   });
 
   return (
-    <Screen>
+    <Screen isProfile>
       <SafeAreaView>
         <View style={styles.userAccount}>
           <Avatar.Image
