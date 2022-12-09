@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import {
@@ -9,18 +9,75 @@ import {
   TextInput,
   IconButton,
 } from "react-native-paper";
+import Colon from "../SvgIcons/Colon";
 
 const ScoreBoard = () => {
+  const [playerScore, setPlayerScore] = useState(0);
+  const [opponentScore, setOpponentScore] = useState(0);
+
+  const downgrade = (func) => {
+    func((state) => state - 1);
+  };
+  const upgrade = (func) => {
+    func((state) => state + 1);
+  };
   return (
     <View style={styles.wrapper}>
       <View style={styles.column}>
         <Text>Ty</Text>
         <View style={styles.board}>
-          <Text style={styles.score}>0</Text>
+          <Text style={styles.score}>{playerScore}</Text>
         </View>
         <View style={styles.iconButtons}>
-          <IconButton />
-          <IconButton />
+          <IconButton
+            icon={"minus"}
+            onPress={() => {
+              downgrade(setPlayerScore);
+            }}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+            disabled={playerScore < 1 || opponentScore + playerScore < 1}
+          />
+          <IconButton
+            icon={"plus"}
+            onPress={() => {
+              upgrade(setPlayerScore);
+            }}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+            disabled={playerScore > 4 || opponentScore + playerScore > 4}
+          />
+        </View>
+      </View>
+      <Colon style={{ marginTop: -20 }} />
+      <View style={styles.column}>
+        <Text>Przeciwnik</Text>
+        <View style={styles.board}>
+          <Text style={styles.score}>{opponentScore}</Text>
+        </View>
+        <View style={styles.iconButtons}>
+          <IconButton
+            icon={"minus"}
+            onPress={() => {
+              downgrade(setOpponentScore);
+            }}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+            disabled={opponentScore < 1 || opponentScore + playerScore < 1}
+          />
+          <IconButton
+            icon={"plus"}
+            onPress={() => {
+              upgrade(setOpponentScore);
+            }}
+            mode="contained"
+            containerColor="#323232"
+            iconColor="#D9D9D9"
+            disabled={opponentScore > 4 || opponentScore + playerScore > 4}
+          />
         </View>
       </View>
     </View>
@@ -30,6 +87,8 @@ const ScoreBoard = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
   },
   column: {
     flex: 1,
@@ -51,7 +110,8 @@ const styles = StyleSheet.create({
   },
   iconButtons: {
     flexDirection: "row",
-    justifyContent,
+    justifyContent: "space-between",
+    width: 130,
   },
 });
 

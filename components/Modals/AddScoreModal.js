@@ -4,6 +4,7 @@ import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Text, Button, Divider, useTheme, TextInput } from "react-native-paper";
 import CloseIcon from "../SvgIcons/CloseIcon";
+import ScoreBoard from "./ScoreBoard";
 
 const AddScoreModal = () => {
   const { navigate } = useNavigation();
@@ -84,7 +85,7 @@ const AddScoreModal = () => {
         <Text style={styles.title}>Dodaj wynik meczu</Text>
         <View style={{ width: 25, height: 25 }} />
       </View>
-      <Divider bold style={[styles.divider, { marginBottom: 20 }]} />
+      <Divider bold style={[styles.divider, { marginBottom: 10 }]} />
       <TextInput
         placeholder={"Tu wpisz imię i nazwisko przeciwnika"}
         textColor="#D9D9D9"
@@ -92,6 +93,7 @@ const AddScoreModal = () => {
         mode="outlined"
         style={styles.textInput}
       />
+      <ScoreBoard />
       <Text variant="titleSmall">
         Wyniki będą widoczne w tabeli dopiero po potwierdzeniu przez
         przeciwnika.

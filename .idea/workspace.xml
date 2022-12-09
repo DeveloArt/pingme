@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01cece58-b589-4ad1-8f5c-5ba7edba5c41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/Icons/ExitIcon.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/NotificationCard.jsx" afterDir="false" />
+    <list default="true" id="2541468c-3c5c-4452-86cb-76ba5b154311" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/SvgIcons/Colon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/SvgIcons/PlusIcon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/SvgIcons/UserPhotoPlug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contextStore/AuthContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firebase/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firebase/handleLogIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firebase/handleSignUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screens/Registry.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Modals/AddScoreModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Modals/AddScoreModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Modals/ScoreBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Modals/ScoreBoard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigation/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,57 +36,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2IfTzUbSvh0qfKLESkLn3Ch7GQx" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/pkalinowski/Projects/pingme&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/snap/phpstorm/306/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/snap/phpstorm/306/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external"
   }
-}</component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+}]]></component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="01cece58-b589-4ad1-8f5c-5ba7edba5c41" name="Changes" comment="" />
-      <created>1670571900527</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1670571900527</updated>
-      <workItem from="1670571901468" duration="6472000" />
-    </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

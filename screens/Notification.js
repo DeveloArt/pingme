@@ -17,7 +17,8 @@ const Notification = () => {
 	menu: {
 	  display: 'flex',
 	  flexDirection: 'row',
-	  position: 'relative'
+	  position: 'relative',
+	  marginBottom: 16,
 	},
 	menuYellow: {
 	  marginLeft: 12,
@@ -40,7 +41,6 @@ const Notification = () => {
 	notificationTextContainer: {
 	  marginRight: 'auto',
 	  marginLeft: 26,
-	  marginTop: 24
   },
 	notificationText: {
 	  fontSize: 12,
