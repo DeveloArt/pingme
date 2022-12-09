@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
+import { useEffect, useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import { MD3LightTheme as DefaultTheme, MD3Theme, Provider as PaperProvider } from 'react-native-paper';
-import Navigation from './Navigation/Navigation';
+import Navigation from './navigation/Navigation';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import AuthContextProvider, { AuthContext } from './contextStore/AuthContext';
 
 
 const paperTheme = {
@@ -20,19 +23,28 @@ const paperTheme = {
   },
 }
 export default function App() {
+  const authCtx = useContext(AuthContext);
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        authCtx.isAuthenticated(true);
+      }
+   }, [auth]);
+  })
   return (
+    <AuthContextProvider>
     <PaperProvider theme={paperTheme}>
       <View style={styles.container}>
         <Navigation />
       </View>
     </PaperProvider>
+    </AuthContextProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: paperTheme.colors.background,
-    color: paperTheme.colors.gray,
+    flex: 1
   },
 });

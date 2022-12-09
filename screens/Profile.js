@@ -3,6 +3,10 @@ import {View, Text,ScrollView, StyleSheet} from 'react-native'
 import { useTheme, Avatar, Button, Divider } from "react-native-paper";
 import UserPhotoPlug from "../components/SvgIcons/UserPhotoPlug";
 import PlusIcon from "../components/SvgIcons/PlusIcon";
+import { SafeAreaView } from "react-native-safe-area-context";
+import AddScoreModal from "../components/Modals/AddScoreModal";
+import Screen from "../components/Screen";
+
 
 const Profile = () => {
   const theme = useTheme();
@@ -119,5 +123,12 @@ const Profile = () => {
     </View>
   )
 }
+	<Screen>
+    <SafeAreaView>
+      <AddScoreModal />
+    </SafeAreaView>
+	</Screen>
+  );
+};
 
-export default Profile
+export default Profile;
