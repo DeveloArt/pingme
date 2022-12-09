@@ -1,16 +1,10 @@
-import {
-   createUserWithEmailAndPassword
-  } from 'firebase/auth';
-  import { auth } from './config';
-  
-  export const handleSignUp = (
-    email,
-    password,
-    navigate,
-  ) => {
-    createUserWithEmailAndPassword(auth, email, password)
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./config";
+
+export const handleSignUp = (email, password, navigate) => {
+  createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      navigate('Home');
+      navigate("Home");
       const user = userCredential.user;
     })
     .catch((error) => {
@@ -18,4 +12,4 @@ import {
       const errorMessage = error.message;
       console.log(errorMessage);
     });
-  };
+};

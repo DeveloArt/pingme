@@ -1,5 +1,5 @@
 import { FontAwesome } from "@expo/vector-icons";
-import {StyleSheet, ImageBackground, View} from 'react-native'
+import { StyleSheet, ImageBackground, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -25,7 +25,7 @@ const Tab = createBottomTabNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <RootNavigator/>
+      <RootNavigator />
     </NavigationContainer>
   );
 }
@@ -91,13 +91,22 @@ function HomeTab() {
 function RootNavigator() {
   return (
     <Stack.Navigator>
-	  <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen
         name="Login"
         component={Login}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
+
       {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
       <Stack.Screen name="Ranking" component={Ranking} />
       <Stack.Screen name="Notification" component={Notification} />
