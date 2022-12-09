@@ -8,13 +8,15 @@ const paperTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#FFD024',
-    background: '#1E1E1E',
-    error: '#DE0000',
-    white: '#fff',
-    gray: '#AAAAAA',
-    available: '#6AB880',
-    unavailable: '#ED7566'
+    primary: "#FFD024",
+    background: "#1E1E1E",
+    error: "#DE0000",
+    white: "#fff",
+    gray: "#AAAAAA",
+    darkGray: "#323232",
+    backgroundGray: "#D9D9D9",
+    available: "#6AB880",
+    unavailable: "#ED7566",
   },
 }
 export default function App() {
@@ -31,7 +33,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: paperTheme.colors.background,
-    alignItems: 'center',
-    justifyContent: 'center',
+    color: paperTheme.colors.gray,
   },
 });
