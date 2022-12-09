@@ -29,7 +29,6 @@ const CardComponent = ({icon, firstText, secondText, description, left}) => {
 	  borderRadius: 10,
 	  backgroundColor:'#323232',
 	  display: 'flex',
-	  flexDirection: 'column',
 	  justifyContent: 'center',
 	  rotate: "3deg"
 	},
@@ -38,8 +37,13 @@ const CardComponent = ({icon, firstText, secondText, description, left}) => {
 	  alignItems: 'center',
 	  flexDirection: 'column',
 	  color: '#FFFFFF',
-	  fontWeight: 600,
-	  marginTop: -4,
+	},
+	paragraphFirst: {
+	  display: 'flex',
+	  alignItems: 'center',
+	  flexDirection: 'column',
+	  color: '#FFFFFF',
+	  marginTop: 4,
 	},
 	description: {
 	  fontSize: 14,
@@ -55,14 +59,27 @@ return (
 	{left && <Text variant="titleSmall" style={styles.description}>{description}</Text>}
 	<Button
 	  style={left ? styles.buttonRight :  styles.button}
+	  onPress={()=>{}}
+	  contentStyle={{
+		flexDirection: 'column',
+		justifyContent: 'center',
+		height: '100%'
+	  }}
    >
-	  {icon}
-	  <Text style={styles.paragraph}>
+	  <View style={{
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		height: '100%'
+	  }}>
+		{icon}
+	  <Text style={styles.paragraphFirst}>
 		{firstText}
 	  </Text>
 	  <Text style={styles.paragraph}>
 		{secondText}
 	  </Text>
+	  </View>
 	</Button>
 	{!left && <Text variant="titleSmall" style={styles.description}>{description}</Text>}
   </View>

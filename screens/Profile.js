@@ -1,13 +1,14 @@
 import React from 'react'
-import { View,Text } from 'react-native'
+import { Text } from 'react-native'
+import Screen from "../components/Screen";
 
 const Profile = () => {
   return (
-    <View>
+    <Screen>
       <Text>
       Profile
       </Text>
-      </View>
+      </Screen>
   )
 }
 
