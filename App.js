@@ -21,7 +21,7 @@ const paperTheme = {
     available: "#6AB880",
     unavailable: "#ED7566",
   },
-};
+}
 export default function App() {
   return (
     <PaperProvider theme={paperTheme}>
@@ -34,6 +34,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
 });
