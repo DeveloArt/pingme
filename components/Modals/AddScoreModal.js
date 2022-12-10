@@ -6,7 +6,7 @@ import { Text, Button, Divider, useTheme, TextInput } from "react-native-paper";
 import CloseIcon from "../SvgIcons/CloseIcon";
 import ScoreBoard from "./ScoreBoard";
 
-const AddScoreModal = () => {
+const AddScoreModal = ({isVisible, handleCloseModal}) => {
   const { navigate } = useNavigation();
   const { height, width } = useWindowDimensions();
   const theme = useTheme();
@@ -77,9 +77,9 @@ const AddScoreModal = () => {
     },
   });
   return (
-    <Modal>
+    <Modal isVisible={isVisible}>
       <View style={styles.topSection}>
-        <View style={styles.icon}>
+        <View style={styles.icon} onClick={handleCloseModal}>
           <CloseIcon />
         </View>
         <Text style={styles.title}>Dodaj wynik meczu</Text>
@@ -105,6 +105,7 @@ const AddScoreModal = () => {
           style={styles.button}
           contentStyle={styles.buttonContentStyle}
           labelStyle={[styles.labelStyle, styles.outlinedContent]}
+		  onPress={handleCloseModal}
         >
           Anuluj
         </Button>

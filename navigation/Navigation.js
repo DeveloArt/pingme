@@ -109,7 +109,7 @@ function RootNavigator() {
         component={Registry}
         options={{ headerShown: false }}
       />
-    
+
 
       <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} />
     </Stack.Navigator>
