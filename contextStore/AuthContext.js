@@ -9,6 +9,7 @@ function AuthContextProvider({ children }) {
   const [isAuth, setIsAuth] = useState();
   const [user, setUser] = useState("");
   const [allUsers, setAllUsers] = useState([]);
+  const [allMatches, setAllMatches] = useState([])
 
   function isAuthenticated(value) {
     setIsAuth(value);
@@ -19,6 +20,9 @@ function AuthContextProvider({ children }) {
   function getAllUsers(value) {
     setAllUsers(value);
   }
+  function getAllMatches(value) {
+    setAllMatches(value);
+  }
   const value = {
     isAuth: !!isAuth,
     user,
@@ -26,6 +30,8 @@ function AuthContextProvider({ children }) {
     setUserId,
     getAllUsers,
     allUsers,
+    getAllMatches, 
+    allMatches
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

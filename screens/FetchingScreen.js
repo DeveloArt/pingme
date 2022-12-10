@@ -25,12 +25,22 @@ const FetchingScreen = () => {
     });
     return allSuppliers;
   };
+  const getAllMatches = async () => {
+    const q = query(collection(firestore, "matches"));
+    const querySnapshot = await getDocs(q);
+    const allSuppliers = [];
+    querySnapshot.forEach((doc) => {
+      allSuppliers.push(doc.data());
+    });
+    return allSuppliers;
+  };
 
   useEffect(() => {
     if (authCtx.user) {
       navigate("HomeTab");
       console.log("dupa");
       getAllUsers.then((data) => authCtx.getAllUsers(data));
+      getAllMatches.then((data) => authCtx.getAllMatches(data));
     } else {
       navigate("Login");
       console.log("zupa");
