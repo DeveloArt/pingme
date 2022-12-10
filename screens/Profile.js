@@ -1,14 +1,16 @@
-import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import React, {useState} from "react";
+import {FlatList, View, Text, ScrollView, StyleSheet, Pressable} from "react-native";
 import { useTheme, Avatar, Button, Divider } from "react-native-paper";
 import UserPhotoPlug from "../components/SvgIcons/UserPhotoPlug";
 import PlusIcon from "../components/SvgIcons/PlusIcon";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AddScoreModal from "../components/Modals/AddScoreModal";
 import Screen from "../components/Screen";
+import AddPhotoModal from "../components/Modals/AddPhotoModal";
 
 const Profile = () => {
   const theme = useTheme();
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const authCtx = useContext(AuthContext);
   console.log({ authCtx });
   const styles = StyleSheet.create({
@@ -87,11 +89,15 @@ const Profile = () => {
     <Screen isProfile>
       <SafeAreaView>
         <View style={styles.userAccount}>
-          <Avatar.Image
-            size={98}
-            source={UserPhotoPlug}
-            style={styles.avatar}
-          />
+          <Pressable onPress={() => {
+            setIsModalOpen(true)
+          }}>
+            <Avatar.Image
+              size={98}
+              source={UserPhotoPlug}
+              style={styles.avatar}
+            />
+          </Pressable>
           <View style={styles.userData}>
             <Text style={styles.title}>Mateusz Bukowski</Text>
             <Text style={styles.info}>Ranga: Nowicjusz</Text>
@@ -118,14 +124,21 @@ const Profile = () => {
             <Text style={styles.info}>Przeciwnik</Text>
             <Text style={styles.info}>Wynik</Text>
           </View>
-          <ScrollView style={styles.rank}>
-            <View style={styles.tableCell}>
-              <View style={styles.status}></View>
-              <Text style={styles.playerName}>Przemysław Kalinowski</Text>
-              <Text style={styles.result}>3:0</Text>
-            </View>
-          </ScrollView>
+          <FlatList style={styles.rank}
+            data={[
+            {playerName: 'Przemysław Kalinowski', result: '3:0'},
+            {playerName: 'Kamil Zieliński', result: '2:1'}
+          ]}
+          renderItem={({item}) =>
+          <View style={styles.tableCell}>
+            <View style={styles.status}></View>
+            <Text style={styles.playerName}>{item.playerName}</Text>
+            <Text style={styles.result}>{item.result}</Text>
+          </View>}
+          />
         </View>
+        {/*{isModalOpen && (<AddScoreModal />)}*/}
+        <AddPhotoModal />
       </SafeAreaView>
     </Screen>
   );

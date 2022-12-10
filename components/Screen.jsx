@@ -1,9 +1,11 @@
 import React from 'react'
 import { StyleSheet,View,useWindowDimensions, ImageBackground } from 'react-native'
+import {useTheme} from "react-native-paper";
 
 const Screen = ({children, isProfile}) => {
 
   const { height, width } = useWindowDimensions();
+	const theme = useTheme();
 
   const styles = StyleSheet.create({
 	screen: {
@@ -18,7 +20,8 @@ const Screen = ({children, isProfile}) => {
 			width: width,
 			height: height,
 			alignItems:'space-between',
-			padding: 24
+			padding: 24,
+			backgroundColor: theme.colors.background
 		},
 	image: {
 	  flex: 1,
@@ -26,11 +29,11 @@ const Screen = ({children, isProfile}) => {
   });
   return (
 	<ImageBackground source={require('../assets/Icons/WelcomeScreen.png')} resizeMode="cover" style={styles.image}>
-	  <View style={isProfile ? styles.screenIsProfile : styles.screen}>
-		{children}
-	  </View>
+		<View style={isProfile ? styles.screenIsProfile : styles.screen}>
+			{children}
+		</View>
 	</ImageBackground>
-  )
+	)
 }
 
 export default Screen
