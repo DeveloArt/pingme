@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import {FlatList, View, Text, ScrollView, StyleSheet, Pressable} from "react-native";
 import React, {useContext, useState} from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
@@ -9,11 +9,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AddScoreModal from "../components/Modals/AddScoreModal";
 import Screen from "../components/Screen";
 import AddPhotoModal from "../components/Modals/AddPhotoModal";
+import { AuthContext } from "../contextStore/AuthContext";
+import {getBackgroundColorAsync} from "expo-system-ui";
 import {AuthContext} from "../contextStore/AuthContext";
 
 const Profile = () => {
   const theme = useTheme();
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const authCtx = useContext(AuthContext);
   console.log({ authCtx });
   const styles = StyleSheet.create({
@@ -77,7 +78,7 @@ const Profile = () => {
       width: 16,
       height: 16,
       borderRadius: "50%",
-      backgroundColor: theme.colors.available,
+      backgroundColor: theme.colors.available
     },
     playerName: {
       color: theme.colors.gray,
@@ -85,25 +86,25 @@ const Profile = () => {
     },
     result: {
       color: theme.colors.gray,
-    },
+    }
   });
 
-  const [isVisibleScoreModal, setIsVisibleScoreModal] = useState(0);
+  const [isVisible, setIsVisible] = useState(0)
 
-  const handleSetVisibleModal = () => {
-	setIsVisibleScoreModal(1)
+  const openModal = () => {
+    setIsVisible(1)
   }
-  const handleCloseModal = () => {
-	setIsVisibleScoreModal(0)
+
+  const closeModal = () => {
+    setIsVisible(0)
+
   }
 
   return (
     <Screen isProfile>
       <SafeAreaView>
         <View style={styles.userAccount}>
-          <Pressable onPress={() => {
-            setIsModalOpen(true)
-          }}>
+          <Pressable onPress={openModal}>
             <Avatar.Image
               size={98}
               source={UserPhotoPlug}
@@ -139,8 +140,12 @@ const Profile = () => {
           </View>
           <FlatList style={styles.rank}
             data={[
-            {playerName: 'Przemysław Kalinowski', result: '3:0'},
-            {playerName: 'Kamil Zieliński', result: '2:1'}
+            {playerName: 'Przemysław Kalinowski', result: '3:0', status: true},
+            {playerName: 'Marcin Galera', result: '0:3', status: false},
+              {playerName: 'Przemysław Kalinowski', result: '1:3', status: false},
+              {playerName: 'Martyna Węglarz', result: '2:1', status: true},
+              {playerName: 'Kamil Zawiślak', result: '2:1', status: true},
+              {playerName: 'Kamil Zieliński', result: '3:1', status: true}
           ]}
           renderItem={({item}) =>
           <View style={styles.tableCell}>
@@ -150,8 +155,9 @@ const Profile = () => {
           </View>}
           />
         </View>
-        <AddPhotoModal />
-		<AddScoreModal isVisible={isVisibleScoreModal} handleCloseModal={handleCloseModal}/>
+        <AddPhotoModal isVisible={isVisible} closeModal={closeModal}/>
+        {/*{isModalOpen && (<AddScoreModal />)}*/}
+
       </SafeAreaView>
     </Screen>
   );
