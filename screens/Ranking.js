@@ -7,7 +7,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AddScoreModal from "../components/Modals/AddScoreModal";
 import Screen from "../components/Screen";
 import ScoreIcon from '../assets/Icons/ScoreIcon'
-import PingPong from "../assets/Icons/PingPong";
+import PingMeIcon from "../assets/Icons/PingMeIcon";
+import StarIcon from '../assets/Icons/StarIcon';
+
+const rankingPosition = "Twoja pozycja w rankingu: "
+const WinRate = "Twój win rate: "
+const NoRankingtext = "Nie ma Cię jeszcze w rankingu."
+const NoRankingtext2 = "Rozegraj minimum 10 meczy aby się w nim znaleźć."
 
 const Ranking = () => {
   const theme = useTheme();
@@ -15,13 +21,13 @@ const Ranking = () => {
   const styles = StyleSheet.create({
     userAccount: {
       flexDirection: "row",
-      marginTop: 16,
+      justifyContent: "space-between"
     },
     avatar: {
       backgroundColor: '#1E1E1E',
     },
     userData: {
-      marginLeft: 24,
+      marginLeft: 0,
     },
     title: {
       marginBottom: 8,
@@ -98,6 +104,28 @@ const Ranking = () => {
       color: theme.colors.gray,
       lineHeight: 20,
       marginLeft: 8
+     },
+     badge: {
+      borderRadius: 10,
+      flexDirection: 'row',
+      color: theme.colors.gray,
+      width: 226,
+      backgroundColor: "#323232"
+     },
+     badgeText: {
+      color: theme.colors.gray,
+      fontSize: 12,
+     },
+     badgeTextWrapper: {
+      justifyContent: 'center',
+      flex: 1,
+      paddingRight: 8,
+      paddingTop: 8,
+      paddingBottom: 8
+     },
+     starWrapper: {
+      marginTop: 'auto',
+      marginBottom: 'auto'
      }
   });
 
@@ -105,9 +133,21 @@ const Ranking = () => {
     <Screen isProfile>
       <SafeAreaView>
         <View style={styles.userAccount}>
-          
           <View style={styles.userData}>
-          <PingPong /> 
+          <PingMeIcon/>
+          </View>
+          <View style={styles.badge}>
+            <View style={styles.starWrapper}>
+            <StarIcon />
+            </View>
+            <View style={styles.badgeTextWrapper}>
+            <Text style={styles.badgeText}>{NoRankingtext}</Text>
+            <Text style={styles.badgeText}>{NoRankingtext2}</Text>
+            </View>
+            {/* <View>
+            <Text style={styles.badgeText}>{rankingPosition}</Text>
+            <Text style={styles.badgeText}>{WinRate}</Text>
+            </View> */}
           </View>
         </View>
         <Divider style={styles.divider} />
