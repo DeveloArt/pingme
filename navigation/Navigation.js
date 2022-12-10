@@ -92,26 +92,26 @@ function HomeTab() {
 
 function RootNavigator() {
   return (
-    <Stack.Navigator>
-       <Stack.Screen
-        name="FetchingScreen"
-        component={FetchingScreen}
-        options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Registry"
-        component={Registry}
-        options={{ headerShown: false }}
-      />
-
-
-      <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} />
-    </Stack.Navigator>
+	<Profile />
+    // <Stack.Navigator>
+	//
+    //    <Stack.Screen
+    //     name="FetchingScreen"
+    //     component={FetchingScreen}
+    //     options={{ headerShown: false }}
+    //   />
+	//
+    //   <Stack.Screen
+    //     name="Login"
+    //     component={Login}
+    //     options={{ headerShown: false }}
+    //   />
+    //   <Stack.Screen
+    //     name="Registry"
+    //     component={Registry}
+    //     options={{ headerShown: false }}
+    //   />
+	//
+    // </Stack.Navigator>
   );
 }

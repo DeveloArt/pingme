@@ -76,6 +76,10 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
       marginVertical: 28,
     },
   });
+
+  const sendMatchScore = () => {
+	console.log('ELO')
+  }
   return (
     <Modal isVisible={isVisible}>
       <View style={styles.topSection}>
@@ -121,6 +125,7 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
             styles.containedLabel,
             { marginHorizontal: 0 },
           ]}
+		  onPress={sendMatchScore}
         >
           Dodaj
         </Button>

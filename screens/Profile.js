@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { useTheme, Avatar, Button, Divider } from "react-native-paper";
 import UserPhotoPlug from "../components/SvgIcons/UserPhotoPlug";
@@ -82,6 +82,15 @@ const Profile = () => {
     },
   });
 
+  const [isVisibleScoreModal, setIsVisibleScoreModal] = useState(0);
+
+  const handleSetVisibleModal = () => {
+	setIsVisibleScoreModal(1)
+  }
+  const handleCloseModal = () => {
+	setIsVisibleScoreModal(0)
+  }
+
   return (
     <Screen isProfile>
       <SafeAreaView>
@@ -107,6 +116,7 @@ const Profile = () => {
                 buttonColor={theme.colors.darkGray}
                 style={styles.button}
                 icon={PlusIcon}
+				onPress={handleSetVisibleModal}
               >
                 <Text style={{ color: theme.colors.white }}>Dodaj wynik</Text>
               </Button>
@@ -125,6 +135,7 @@ const Profile = () => {
             </View>
           </ScrollView>
         </View>
+		<AddScoreModal isVisible={isVisibleScoreModal} handleCloseModal={handleCloseModal}/>
       </SafeAreaView>
     </Screen>
   );
