@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
+import React, { useContext, useState } from "react";
+import { View, Text, ScrollView, StyleSheet, FlatList } from "react-native";
 import { useTheme, Avatar, Button, Divider } from "react-native-paper";
 import UserPhotoPlug from "../components/SvgIcons/UserPhotoPlug";
 import PlusIcon from "../components/SvgIcons/PlusIcon";
@@ -19,7 +19,7 @@ const NoRankingtext2 = "Rozegraj minimum 10 meczy aby się w nim znaleźć."
 const Ranking = () => {
   const theme = useTheme();
   const authCtx = useContext(AuthContext)
-  console.log(authCtx.allMatches)
+  const [isTenMatches, setIdTenMatches] = useState(false)
 
   const styles = StyleSheet.create({
     userAccount: {
@@ -78,7 +78,8 @@ const Ranking = () => {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: 12,
+      paddingTop: 12,
+      paddingBottom: 12,
       marginHorizontal: 16,
       borderBottomColor: theme.colors.gray,
       borderBottomWidth: 1,
@@ -95,13 +96,16 @@ const Ranking = () => {
     },
     result: {
       color: theme.colors.gray,
+      fontWeight: 'bold'
     },
     filters: {
-      flexDirection: 'row'
+      flexDirection: 'row',
+      paddingRight: 5
     },
     number: {
       fontSize: 14,
       color: theme.colors.gray,
+      paddingRight: 5
     },
      scorePoints: {
       color: theme.colors.gray,
@@ -112,7 +116,7 @@ const Ranking = () => {
       borderRadius: 10,
       flexDirection: 'row',
       color: theme.colors.gray,
-      width: 226,
+      width: 210,
       backgroundColor: "#323232"
      },
      badgeText: {
@@ -129,6 +133,14 @@ const Ranking = () => {
      starWrapper: {
       marginTop: 'auto',
       marginBottom: 'auto'
+     },
+     person: {
+      flexDirection: 'row',
+     },
+     scores: {
+      flexDirection: 'row',
+      width: 96,
+      justifyContent: 'space-between'
      }
   });
 
@@ -143,14 +155,18 @@ const Ranking = () => {
             <View style={styles.starWrapper}>
             <StarIcon />
             </View>
-            <View style={styles.badgeTextWrapper}>
-            <Text style={styles.badgeText}>{NoRankingtext}</Text>
-            <Text style={styles.badgeText}>{NoRankingtext2}</Text>
-            </View>
-            {/* <View>
-            <Text style={styles.badgeText}>{rankingPosition}</Text>
-            <Text style={styles.badgeText}>{WinRate}</Text>
-            </View> */}
+            {isTenMatches && (
+              <View style={styles.badgeTextWrapper}>
+              <Text style={styles.badgeText}>{NoRankingtext}</Text>
+              <Text style={styles.badgeText}>{NoRankingtext2}</Text>
+              </View>
+            )}
+            {!isTenMatches && (
+              <View style={styles.badgeTextWrapper}>
+              <Text style={styles.badgeText}>{rankingPosition}</Text>
+              <Text style={styles.badgeText}>{WinRate}</Text>
+              </View>)
+            }
           </View>
         </View>
         <Divider style={styles.divider} />
@@ -173,43 +189,32 @@ const Ranking = () => {
               </View>
             </View>
           </View>
-          {/* <ScrollView style={styles.rank}>
+          <ScrollView style={styles.rank}>
           <FlatList style={styles.rank}
             data={[
-            {playerName: 'Przemysław Kalinowski', result: '3:0', procent: 70},
-            {playerName: 'Kamil Zieliński', result: '2:1'}
+            {playerName: 'Przemysław Kalinowski', score: '74', procent: 70},
+            {playerName: 'Kamil Zieliński', score: '60', procent: 62},
+            {playerName: 'Martyna Węglarz', score: '57', procent: 60},
+            {playerName: 'Aleksandra Fiałkowska', score: '40', procent: 75},
+            {playerName: 'Mateusz Bukowski', score: '39', procent: 80}
           ]}
-          renderItem={({item}) =>
+          renderItem={({item, index}) =>
               <View style={styles.tableCell}>
-              <Text style={styles.number}>1</Text>
-              <Text style={styles.playerName}>Przemysław Kalinowski</Text>
-              <Text style={styles.number}>70,5%</Text>
-              <Text style={styles.result}>250</Text>
-            </View>
-          /> */}
-            {/* <View style={styles.tableCell}>
-            <Text style={styles.number}>1</Text>
-              <Text style={styles.playerName}>Przemysław Kalinowski</Text>
-              <Text style={styles.number}>70,5%</Text>
-              <Text style={styles.result}>250</Text>
-            </View>
-            <View style={styles.tableCell}>
-            <Text style={styles.number}>1</Text>
-              <Text style={styles.playerName}>Przemysław Kalinowski</Text>
-              <Text style={styles.number}>70,5%</Text>
-              <Text style={styles.result}>250</Text>
-            </View>
-            <View style={styles.tableCell}>
-            <Text style={styles.number}>1</Text>
-              <Text style={styles.playerName}>Przemysław Kalinowski</Text>
-              <Text style={styles.number}>70,5%</Text>
-              <Text style={styles.result}>250</Text>
-            </View> */}
-          {/* </ScrollView> */}
+              <View style={styles.person}>
+              <Text style={styles.number}>{index + 1}</Text>
+              <Text style={styles.number}>{item.playerName}</Text>
+              </View>
+              <View style={styles.scores}>
+              <Text style={styles.number}>${item.procent}%</Text>
+              <Text style={styles.result}>{item.score}</Text>
+              </View>
+              </View> }
+              />
+          </ScrollView>
         </View>
       </SafeAreaView>
     </Screen>
   );
-};
+}
 
-export default Ranking;
+export default Ranking
