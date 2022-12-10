@@ -18,7 +18,7 @@ const Home = () => {
   const [isVisibleDrawOpponentModal, setIsVisibleDrawOpponentModal] =
     useState(0);
   const authCtx = useContext(AuthContext);
-  console.log(authCtx.user, authCtx.allUsers);
+  console.log({ f: authCtx.user, s: authCtx.allUsers });
   const handleSetVisibleModal = () => {
     setIsVisibleScoreModal(1);
   };

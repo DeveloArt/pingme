@@ -14,10 +14,10 @@ function AuthContextProvider({ children }) {
     setIsAuth(value);
   }
   function setUserId(user) {
-    setAllUsers(user);
+    setUser(user);
   }
   function getAllUsers(value) {
-    setAllUser(value);
+    setAllUsers(value);
   }
   const value = {
     isAuth: !!isAuth,
