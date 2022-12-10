@@ -30,12 +30,12 @@ const FetchingScreen = () => {
     if (authCtx.user) {
       navigate("HomeTab");
       console.log("dupa");
+      getAllUsers.then((data) => authCtx.getAllUsers(data));
     } else {
-      // navigate("Login");
+      navigate("Login");
       console.log("zupa");
     }
   }, []);
-  navigate("Login");
 
   return <ScrollView />;
 };
