@@ -21,7 +21,7 @@ const Registry = () => {
   const authCtx = useContext(AuthContext);
 
   function submitHandler() {
-    const user = handleSignUp(enteredEmail, enteredPassword, navigate);
+    handleSignUp(enteredEmail, enteredPassword, navigate);
   }
 
   const styles = StyleSheet.create({

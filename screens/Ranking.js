@@ -20,7 +20,6 @@ const Ranking = () => {
   const theme = useTheme();
   const authCtx = useContext(AuthContext)
   const [isTenMatches, setIdTenMatches] = useState(false)
-  console.log(authCtx.allMatches)
 
   const styles = StyleSheet.create({
     userAccount: {
@@ -193,8 +192,11 @@ const Ranking = () => {
           <ScrollView style={styles.rank}>
           <FlatList style={styles.rank}
             data={[
-            {playerName: 'Przemysław Kalinowski', score: '55', procent: 70},
-            {playerName: 'Kamil Zieliński', score: '31', procent: 40}
+            {playerName: 'Przemysław Kalinowski', score: '74', procent: 70},
+            {playerName: 'Kamil Zieliński', score: '60', procent: 62},
+            {playerName: 'Martyna Węglarz', score: '57', procent: 60},
+            {playerName: 'Aleksandra Fiałkowska', score: '40', procent: 75},
+            {playerName: 'Mateusz Bukowski', score: '39', procent: 80}
           ]}
           renderItem={({item, index}) =>
               <View style={styles.tableCell}>
