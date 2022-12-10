@@ -8,7 +8,7 @@ import AddFromAlbumIcon from "../SvgIcons/AddFromAlbumIcon";
 import AddFromCameraIcon from "../SvgIcons/AddFromCameraIcon";
 
 
-const SendInvitationModal = () => {
+const AddPhotoModal = ({isVisible, closeModal}) => {
   const { navigate } = useNavigation();
   const { height, width } = useWindowDimensions();
   const theme = useTheme();
@@ -71,10 +71,11 @@ const SendInvitationModal = () => {
     }
 
   });
+
   return (
-    <Modal>
+    <Modal isVisible={isVisible}>
       <View style={styles.topSection}>
-        <View style={styles.icon}>
+        <View style={styles.icon} onClick={closeModal}>
           <CloseIcon />
         </View>
         <Text style={styles.title}>Edytuj zdjęcie</Text>
@@ -93,4 +94,4 @@ const SendInvitationModal = () => {
   );
 };
 
-export default SendInvitationModal;
+export default AddPhotoModal;
