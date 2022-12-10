@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import Modal from "../Modal";
 import { StyleSheet, View, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Text, Button, Divider, useTheme, TextInput } from "react-native-paper";
 import CloseIcon from "../SvgIcons/CloseIcon";
 import ScoreBoard from "./ScoreBoard";
+import {AuthContext} from "../../contextStore/AuthContext";
+import {handleSendMatch} from "../../firebase/handleSendMatch";
 
 const AddScoreModal = ({isVisible, handleCloseModal}) => {
   const { navigate } = useNavigation();
@@ -37,8 +39,11 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
       justifyContent: "space-between",
     },
     buttonContentStyle: {
-      height: 50,
-      width: 170,
+	  borderRadius: 10,
+	  width: 170,
+	  height: 50,
+	  color: '#c0c0c0',
+	  backgroundColor: '#ffffff',
     },
     labelStyle: {
       margin: "auto",
@@ -48,6 +53,13 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
       width: 170,
       height: 50,
     },
+	buttonDisabled: {
+	  borderRadius: 10,
+	  width: 170,
+	  height: 50,
+	  color: '#c0c0c0',
+	  backgroundColor: '#ffffff',
+	},
     outlinedContent: {
       color: theme.colors.darkGray,
       fontWeight: "600",
@@ -59,6 +71,10 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
       color: "#FFD024",
       fontWeight: "600",
     },
+	whiteLabel: {
+	  color: "#D9D9D9",
+	  fontWeight: "600",
+	},
     topSection: {
       flexDirection: "row",
       justifyContent: "space-between",
@@ -76,6 +92,14 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
       marginVertical: 28,
     },
   });
+  const authCtx = useContext(AuthContext);
+  const [playerScore, setPlayerScore] = useState(0);
+  const [opponentScore, setOpponentScore] = useState(0);
+  const {user} = authCtx
+  console.log('authCtx@@@@@@@@@@@@@@@@@@@', authCtx)
+  const handleAddMatch = () =>{
+	handleSendMatch(user, 'pj5OiOoVP0T5dJ6YUCG2E4zTq3o2', playerScore, opponentScore)
+  }
   return (
     <Modal isVisible={isVisible}>
       <View style={styles.topSection}>
@@ -93,7 +117,12 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
         mode="outlined"
         style={styles.textInput}
       />
-      <ScoreBoard />
+      <ScoreBoard
+		playerScore={playerScore}
+		opponentScore={opponentScore}
+		setPlayerScore={setPlayerScore}
+		setOpponentScore={setOpponentScore}
+	  />
       <Text variant="titleSmall">
         Wyniki będą widoczne w tabeli dopiero po potwierdzeniu przez
         przeciwnika.
@@ -109,21 +138,26 @@ const AddScoreModal = ({isVisible, handleCloseModal}) => {
         >
           Anuluj
         </Button>
+		<View>
         <Button
           mode="contained"
-          style={styles.button}
+          style={playerScore === opponentScore ? styles.buttonDisabled : styles.button}
           contentStyle={[
             styles.buttonContentStyle,
-            { backgroundColor: "#323232" },
+            { backgroundColor: playerScore === opponentScore  ? '#999999':"#323232" },
           ]}
           labelStyle={[
             styles.labelStyle,
             styles.containedLabel,
-            { marginHorizontal: 0 },
+			playerScore === opponentScore  ? styles.whiteLabel: styles.containedLabel,
+		  { marginHorizontal: 0 },
           ]}
+		  disabled={playerScore === opponentScore}
+		  onPress={handleAddMatch}
         >
           Dodaj
         </Button>
+		</View>
       </View>
     </Modal>
   );
