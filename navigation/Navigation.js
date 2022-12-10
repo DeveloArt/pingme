@@ -93,9 +93,16 @@ function HomeTab() {
 function RootNavigator() {
   return (
     <Stack.Navigator>
+
        <Stack.Screen
         name="FetchingScreen"
         component={FetchingScreen}
+        options={{ headerShown: false }}
+      />
+
+        <Stack.Screen
+        name="Ranking"
+        component={Ranking}
         options={{ headerShown: false }}
       />
 
