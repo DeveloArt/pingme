@@ -10,11 +10,17 @@ import {
   where,
 } from "firebase/firestore";
 import { firestore } from "./config";
+import setUserNameAndSurname from "../helpers/setUserNameAndSurrname";
 export const handleSignUp = (email, password, navigate) => {
   let user;
   const addNewUser = (user) => {
     const usersRef = collection(firestore, "users");
-    setDoc(doc(usersRef), user).catch((err) => console.log(err));
+    console.log({ email });
+    console.log({ user });
+    const { name, surname } = setUserNameAndSurname(email);
+    setDoc(doc(usersRef), { name, surname, id: user.user }).catch((err) =>
+      console.log(err)
+    );
   };
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
