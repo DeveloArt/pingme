@@ -1,49 +1,43 @@
 import React from "react";
 import { useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { AuthContext } from '../contextStore/AuthContext';
-import { ScrollView } from 'react-native-web'
-import {
-    collection, doc, setDoc, getDoc, getDocs, query, where,
-  } from 'firebase/firestore';
-  import { get } from 'react-hook-form';
-  import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { AuthContext } from "../contextStore/AuthContext";
+import { ScrollView } from "react-native-web";
+import { collection, getDocs, query } from "firebase/firestore";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { firestore } from "../firebase/config";
 
 const FetchingScreen = () => {
-    const authCtx = useContext(AuthContext);
-    const userId = authCtx.user
-    const { navigate } = useNavigation();
-    const auth = getAuth();
-    // signOut(auth).then(() => {
-    //   }).catch((error) => { 
-    //   });
+  const authCtx = useContext(AuthContext);
+  const userId = authCtx.user;
+  const { navigate } = useNavigation();
+  const auth = getAuth();
+  signOut(auth)
+    .then(() => {})
+    .catch((error) => {});
 
-const getAllUsers = async () => {
-        const q = query(collection(firestore, "users"));
-        const querySnapshot = await getDocs(q);
-        const allSuppliers = []
-        querySnapshot.forEach((doc) => { allSuppliers.push(doc.data()) });
-        return allSuppliers
-      }
+  const getAllUsers = async () => {
+    const q = query(collection(firestore, "users"));
+    const querySnapshot = await getDocs(q);
+    const allSuppliers = [];
+    querySnapshot.forEach((doc) => {
+      allSuppliers.push(doc.data());
+    });
+    return allSuppliers;
+  };
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    const uid = user.uid;
-    authCtx.setUserId(uid)
-    const users = getAllUsers()
-    navigate('Home')
-  } else {
-    navigate('Login')
-  }
-});
+  useEffect(() => {
+    if (authCtx.user) {
+      navigate("HomeTab");
+      console.log("dupa");
+      getAllUsers.then((data) => authCtx.getAllUsers(data));
+    } else {
+      navigate("Login");
+      console.log("zupa");
+    }
+  }, []);
 
-  return (
-	<ScrollView />
-  )
-}
+  return <ScrollView />;
+};
 
-export default FetchingScreen
-
-
-
-
+export default FetchingScreen;

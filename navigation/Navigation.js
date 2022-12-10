@@ -15,6 +15,7 @@ import Person from "../components/SvgIcons/Person";
 import Star from "../components/SvgIcons/Star";
 import Home from "../screens/Home";
 import Login from "../screens/Login";
+import Registry from "../screens/Registry";
 import Notification from "../screens/Notification";
 import Profile from "../screens/Profile";
 import Ranking from "../screens/Ranking";
@@ -109,20 +110,13 @@ function RootNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
+        name="Registry"
+        component={Registry}
         options={{ headerShown: false }}
       />
 
-      {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
-      {/* <Stack.Screen name="Ranking" component={Ranking} /> */}
-      <Stack.Screen name="Notification" component={Notification} />
-      {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
+
+      <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
