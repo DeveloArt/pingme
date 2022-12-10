@@ -21,15 +21,7 @@ const Registry = () => {
   const authCtx = useContext(AuthContext);
 
   function submitHandler() {
-    console.log("enteredEmail", enteredEmail);
-    console.log("enteredPassword", enteredPassword);
-    console.log("navigate", navigate);
     const user = handleSignUp(enteredEmail, enteredPassword, navigate);
-    console.log("user1", user);
-    //   authCtx.setUserId(user.user)
-  }
-  function goToLoginPage() {
-    navigate("Login");
   }
 
   const styles = StyleSheet.create({

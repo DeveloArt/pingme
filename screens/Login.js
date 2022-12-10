@@ -61,7 +61,7 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <PingMeIcon />
+      <PingMeIcon style={{ marginHorizontal: "auto" }} />
       <View style={styles.welcomeSetionWrapper}>
         <Text style={styles.welcomeSetion}>{welcomeText}</Text>
         <Text
@@ -73,7 +73,7 @@ const Login = () => {
         style={styles.input}
         mode="outlined"
         onChangeText={(value) => {
-          // setEnteredEmail(value);
+          setEnteredEmail(value);
         }}
         value={enteredEmail}
         placeholder="Tu wpisz e-mail firmowy"
@@ -84,7 +84,7 @@ const Login = () => {
         mode="outlined"
         style={styles.input}
         onChangeText={(value) => {
-          // setEnteredPassword(value);
+          setEnteredPassword(value);
         }}
         secureTextEntry
         value={enteredPassword}
