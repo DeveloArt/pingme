@@ -1,5 +1,7 @@
 import React, {useState, useContext} from "react";
 import {FlatList, View, Text, ScrollView, StyleSheet, Pressable} from "react-native";
+import React, {useContext, useState} from "react";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { useTheme, Avatar, Button, Divider } from "react-native-paper";
 import UserPhotoPlug from "../components/SvgIcons/UserPhotoPlug";
 import PlusIcon from "../components/SvgIcons/PlusIcon";
@@ -9,6 +11,7 @@ import Screen from "../components/Screen";
 import AddPhotoModal from "../components/Modals/AddPhotoModal";
 import { AuthContext } from "../contextStore/AuthContext";
 import {getBackgroundColorAsync} from "expo-system-ui";
+import {AuthContext} from "../contextStore/AuthContext";
 
 const Profile = () => {
   const theme = useTheme();
@@ -94,6 +97,7 @@ const Profile = () => {
 
   const closeModal = () => {
     setIsVisible(0)
+
   }
 
   return (
@@ -123,6 +127,7 @@ const Profile = () => {
                 buttonColor={theme.colors.darkGray}
                 style={styles.button}
                 icon={PlusIcon}
+				onPress={handleSetVisibleModal}
               >
                 <Text style={{ color: theme.colors.white }}>Dodaj wynik</Text>
               </Button>
@@ -152,6 +157,7 @@ const Profile = () => {
         </View>
         <AddPhotoModal isVisible={isVisible} closeModal={closeModal}/>
         {/*{isModalOpen && (<AddScoreModal />)}*/}
+
       </SafeAreaView>
     </Screen>
   );
