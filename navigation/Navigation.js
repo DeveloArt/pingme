@@ -96,6 +96,12 @@ function RootNavigator() {
         options={{ headerShown: false }}
       />
 
+        <Stack.Screen
+        name="Ranking"
+        component={Ranking}
+        options={{ headerShown: false }}
+      />
+
       <Stack.Screen
         name="Login"
         component={Login}
