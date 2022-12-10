@@ -1,7 +1,5 @@
-import React, {useState} from "react";
 import {FlatList, View, Text, ScrollView, StyleSheet, Pressable} from "react-native";
 import React, {useContext, useState} from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { useTheme, Avatar, Button, Divider } from "react-native-paper";
 import UserPhotoPlug from "../components/SvgIcons/UserPhotoPlug";
 import PlusIcon from "../components/SvgIcons/PlusIcon";
