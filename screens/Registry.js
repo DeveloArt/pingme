@@ -6,8 +6,8 @@ import { Button, useTheme, TextInput } from "react-native-paper";
 import { handleSignUp } from "../firebase/handleSignUp";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PingMeIcon from "../assets/Icons/PingMeIcon";
-import { AuthContext } from '../contextStore/AuthContext';
-import { useContext } from 'react';
+import { AuthContext } from "../contextStore/AuthContext";
+import { useContext } from "react";
 
 const welcomeText = "Fajnie, że jesteś!";
 const welcomeText2 =
@@ -16,20 +16,20 @@ const welcomeText2 =
 const Registry = () => {
   const { navigate } = useNavigation();
   const theme = useTheme();
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredPassword, setEnteredPassword] = useState('');
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
   const authCtx = useContext(AuthContext);
-  
+
   function submitHandler() {
-    console.log('enteredEmail', enteredEmail)
-    console.log('enteredPassword', enteredPassword)
-    console.log('navigate', navigate)
+    console.log("enteredEmail", enteredEmail);
+    console.log("enteredPassword", enteredPassword);
+    console.log("navigate", navigate);
     const user = handleSignUp(enteredEmail, enteredPassword, navigate);
-      console.log('user1', user)
+    console.log("user1", user);
     //   authCtx.setUserId(user.user)
   }
   function goToLoginPage() {
-    navigate("Login")
+    navigate("Login");
   }
 
   const styles = StyleSheet.create({
@@ -62,9 +62,9 @@ const Registry = () => {
       <PingMeIcon />
       <View style={styles.welcomeSetionWrapper}>
         <Text style={styles.welcomeSetion}>{welcomeText}</Text>
-        <Text style={styles.welcomeSetion}>{`${
-          "Zarejestruj się"
-        }${welcomeText2}`}</Text>
+        <Text
+          style={styles.welcomeSetion}
+        >{`${"Zarejestruj się"}${welcomeText2}`}</Text>
       </View>
       <Text style={styles.text}>E-mail</Text>
       <TextInput
@@ -84,7 +84,7 @@ const Registry = () => {
         onChangeText={(value) => {
           setEnteredPassword(value);
         }}
-        secure
+        secureTextEntry
         value={enteredPassword}
         placeholder="Minimum 8 znaków"
         textColor="#FFFFFF"
@@ -104,7 +104,6 @@ const Registry = () => {
       >
         ZAREJESTRUJ SIĘ
       </Button>
-
     </SafeAreaView>
   );
 };

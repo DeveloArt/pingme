@@ -4,11 +4,11 @@ import { StyleSheet, View, Text, useWindowDimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Button, useTheme, TextInput } from "react-native-paper";
 import { handleSignUp } from "../firebase/handleSignUp";
-import { handleLogin } from "../firebase/handleLogIn";
+import { signInWithEmail } from "../firebase/handleLogIn";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PingMeIcon from "../assets/Icons/PingMeIcon";
-import { AuthContext } from '../contextStore/AuthContext';
-import { useContext } from 'react';
+import { AuthContext } from "../contextStore/AuthContext";
+import { useContext } from "react";
 
 const welcomeText = "Fajnie, że jesteś!";
 const welcomeText2 =
@@ -17,13 +17,17 @@ const welcomeText2 =
 const Login = () => {
   const { navigate } = useNavigation();
   const theme = useTheme();
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [enteredPassword, setEnteredPassword] = useState('');
+  const [enteredEmail, setEnteredEmail] = useState("test@test.pl");
+  const [enteredPassword, setEnteredPassword] = useState("123456");
   const authCtx = useContext(AuthContext);
-  
+
   function submitHandler() {
-      const user = handleLogin(enteredEmail, enteredPassword, navigate);
-      authCtx.setUserId(user.user)
+    signInWithEmail(enteredEmail, enteredPassword, navigate).then((data) => {
+      console.log({ data });
+      authCtx.setUserId(data);
+      navigate("HomeTab");
+    });
+    // authCtx.setUserId(user.user);
   }
 
   const styles = StyleSheet.create({
@@ -52,22 +56,24 @@ const Login = () => {
   });
 
   const goTorRegistryPage = () => {
-    navigate('Registry')
-  }
+    navigate("Registry");
+  };
 
   return (
     <SafeAreaView style={styles.screen}>
       <PingMeIcon />
       <View style={styles.welcomeSetionWrapper}>
         <Text style={styles.welcomeSetion}>{welcomeText}</Text>
-        <Text style={styles.welcomeSetion}>{`Zarejestruj się${welcomeText2}`}</Text>
+        <Text
+          style={styles.welcomeSetion}
+        >{`Zarejestruj się${welcomeText2}`}</Text>
       </View>
       <Text style={styles.text}>E-mail</Text>
       <TextInput
         style={styles.input}
         mode="outlined"
         onChangeText={(value) => {
-          setEnteredEmail(value);
+          // setEnteredEmail(value);
         }}
         value={enteredEmail}
         placeholder="Tu wpisz e-mail firmowy"
@@ -78,9 +84,9 @@ const Login = () => {
         mode="outlined"
         style={styles.input}
         onChangeText={(value) => {
-          setEnteredPassword(value);
+          // setEnteredPassword(value);
         }}
-        secure
+        secureTextEntry
         value={enteredPassword}
         placeholder="Minimum 8 znaków"
         textColor="#FFFFFF"
@@ -98,14 +104,15 @@ const Login = () => {
         onPress={submitHandler}
         style={styles.button}
       >
-      ZALOGUJ SIĘ
+        ZALOGUJ SIĘ
       </Button>
       <Button
         textColor={theme.colors.gray}
         style={styles.textButton}
         mode="text"
         onPress={goTorRegistryPage}
-      >ZAREJESTRUJ SIĘ
+      >
+        ZAREJESTRUJ SIĘ
       </Button>
     </SafeAreaView>
   );
