@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { StyleSheet, View, Text, useWindowDimensions } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { CurrentRenderContext, useNavigation } from "@react-navigation/native";
 import { Button, useTheme, TextInput } from "react-native-paper";
 import { handleSignUp } from "../firebase/handleSignUp";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -28,25 +28,29 @@ const Registry = () => {
     screen: {
       flex: 1,
       backgroundColor: "#1E1E1E",
-      padding: 24,
+      padding: 24
     },
     text: {
       color: theme.colors.gray,
     },
-    textButton: {
-      fontSize: 10,
-    },
     button: {
+      marginTop: 20,
       borderRadius: 5,
+      fontWeight: 'bold'
     },
     welcomeSetion: {
       color: theme.colors.gray,
       alignSelf: "center",
+      textAlign: 'center',
+      fontWeight: 'bold'
     },
     welcomeSetionWrapper: {
       paddingTop: 24,
       paddingBottom: 48,
     },
+    input: {
+      marginBottom: 8
+    }
   });
 
   return (
@@ -81,13 +85,6 @@ const Registry = () => {
         placeholder="Minimum 8 znaków"
         textColor="#FFFFFF"
       />
-      <Button
-        textColor={theme.colors.gray}
-        style={styles.textButton}
-        mode="text"
-      >
-        Nie pamiętam hasła
-      </Button>
       <Button
         buttonColor={theme.colors.primary}
         textColor={theme.colors.background}

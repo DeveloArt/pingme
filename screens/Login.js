@@ -43,6 +43,7 @@ const Login = () => {
     },
     textButton: {
       fontSize: 10,
+      alignSelf: 'flex-start'
     },
     button: {
       borderRadius: 5,
@@ -50,11 +51,20 @@ const Login = () => {
     welcomeSetion: {
       color: theme.colors.gray,
       alignSelf: "center",
+      textAlign: 'center',
+      fontWeight: 'bold'
     },
     welcomeSetionWrapper: {
       paddingTop: 24,
       paddingBottom: 32,
     },
+    registerButton: {
+      fontSize: 10,
+      alignSelf: 'center'
+    },
+    buttonFont: {
+      fontWeight: 'bold'
+    }
   });
 
   const goTorRegistryPage = () => {
@@ -110,9 +120,10 @@ const Login = () => {
       </Button>
       <Button
         textColor={theme.colors.gray}
-        style={styles.textButton}
+        style={styles.registerButton}
         mode="text"
         onPress={goTorRegistryPage}
+        contentStyle={theme.buttonFont}
       >
         ZAREJESTRUJ SIĘ
       </Button>
