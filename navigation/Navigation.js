@@ -92,6 +92,11 @@ function HomeTab() {
 function RootNavigator() {
   return (
     <Stack.Navigator>
+	  <Stack.Screen
+		name="Home"
+		component={Home}
+		options={{ headerShown: false }}
+	  />
        <Stack.Screen
         name="FetchingScreen"
         component={FetchingScreen}
@@ -101,11 +106,6 @@ function RootNavigator() {
       <Stack.Screen
         name="Login"
         component={Login}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Home"
-        component={Home}
         options={{ headerShown: false }}
       />
       <Stack.Screen
