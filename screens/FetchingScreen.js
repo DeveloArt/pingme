@@ -25,21 +25,16 @@ const FetchingScreen = () => {
     });
     return allSuppliers;
   };
-  //Fjany Kod
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       const uid = user.uid;
-  //       authCtx.setUserId(uid);
-  //       const users = getAllUsers();
-  //       navigate("HomeTab");
-  //       console.log("dupa");
-  //     } else {
-  //       // navigate("Login");
-  //       console.log("zupa");
-  //     }
-  //   });
-  // }, []);
+
+  useEffect(() => {
+    if (authCtx.user) {
+      navigate("HomeTab");
+      console.log("dupa");
+    } else {
+      // navigate("Login");
+      console.log("zupa");
+    }
+  }, []);
   navigate("Login");
 
   return <ScrollView />;
