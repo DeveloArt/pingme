@@ -1,11 +1,6 @@
-import { FontAwesome } from "@expo/vector-icons";
-import { StyleSheet, ImageBackground, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-  useNavigation,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
@@ -92,26 +87,26 @@ function HomeTab() {
 
 function RootNavigator() {
   return (
-	<Profile />
-    // <Stack.Navigator>
-	//
-    //    <Stack.Screen
-    //     name="FetchingScreen"
-    //     component={FetchingScreen}
-    //     options={{ headerShown: false }}
-    //   />
-	//
-    //   <Stack.Screen
-    //     name="Login"
-    //     component={Login}
-    //     options={{ headerShown: false }}
-    //   />
-    //   <Stack.Screen
-    //     name="Registry"
-    //     component={Registry}
-    //     options={{ headerShown: false }}
-    //   />
-	//
-    // </Stack.Navigator>
+
+    <Stack.Navigator>
+
+       <Stack.Screen
+        name="FetchingScreen"
+        component={FetchingScreen}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Registry"
+        component={Registry}
+        options={{ headerShown: false }}
+      />
+	  <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 }

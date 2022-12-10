@@ -11,9 +11,8 @@ import {
 } from "react-native-paper";
 import Colon from "../SvgIcons/Colon";
 
-const ScoreBoard = () => {
-  const [playerScore, setPlayerScore] = useState(0);
-  const [opponentScore, setOpponentScore] = useState(0);
+const ScoreBoard = ({playerScore, setPlayerScore, opponentScore, setOpponentScore}) => {
+
 
   const downgrade = (func) => {
     func((state) => state - 1);
