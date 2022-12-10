@@ -9,14 +9,15 @@ import Screen from "../components/Screen";
 
 const Profile = () => {
   const theme = useTheme();
-
+  const authCtx = useContext(AuthContext);
+  console.log({ authCtx });
   const styles = StyleSheet.create({
     userAccount: {
       flexDirection: "row",
       marginTop: 16,
     },
     avatar: {
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
     },
     userData: {
       marginLeft: 24,
