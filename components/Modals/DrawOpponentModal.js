@@ -8,7 +8,7 @@ import Person from '../SvgIcons/Person';
 import ScoreBoard from './ScoreBoard'
 import AddScoreModal from './AddScoreModal'
 
-const DrawOpponentModal = () => {
+const DrawOpponentModal = ({isVisible, handleCloseDrawOpponentModal}) => {
   const { navigate } = useNavigation();
   const { height, width } = useWindowDimensions();
   const theme = useTheme();
@@ -98,9 +98,9 @@ const DrawOpponentModal = () => {
 
   });
   return (
-    <Modal>
+    <Modal isVisible={isVisible}>
       <View style={styles.topSection}>
-        <View style={styles.icon}>
+        <View style={styles.icon} onClick={handleCloseDrawOpponentModal}>
           <CloseIcon />
         </View>
         <Text style={styles.title}>Losowanie przeciwnika</Text>

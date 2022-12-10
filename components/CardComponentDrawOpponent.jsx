@@ -2,8 +2,7 @@ import * as React from 'react';
 import { StyleSheet, View} from 'react-native'
 import { Button,Text  } from 'react-native-paper';
 
-
-const CardComponent = ({icon, firstText, secondText, description, left}) => {
+const CardComponentDrawOpponent = ({icon, firstText, secondText, description, left,  handleSetDrawOpponentModal}) => {
 
   const styles = StyleSheet.create({
 	container: {
@@ -54,36 +53,36 @@ const CardComponent = ({icon, firstText, secondText, description, left}) => {
 	},
   });
 
-return (
-  <View style={styles.container}>
-	{left && <Text variant="titleSmall" style={styles.description}>{description}</Text>}
-	<Button
-	  style={left ? styles.buttonRight :  styles.button}
-	  onPress={()=>{}}
-	  contentStyle={{
-		flexDirection: 'column',
-		justifyContent: 'center',
-		height: '100%'
-	  }}
-   >
-	  <View style={{
-		flexDirection: 'column',
-		justifyContent: 'center',
-		alignItems: 'center',
-		height: '100%'
-	  }}>
-		{icon}
-	  <Text style={styles.paragraphFirst}>
-		{firstText}
-	  </Text>
-	  <Text style={styles.paragraph}>
-		{secondText}
-	  </Text>
-	  </View>
-	</Button>
-	{!left && <Text variant="titleSmall" style={styles.description}>{description}</Text>}
-  </View>
+  return (
+	<View style={styles.container}>
+	  {left && <Text variant="titleSmall" style={styles.description}>{description}</Text>}
+	  <Button
+		style={left ? styles.buttonRight :  styles.button}
+		onPress={handleSetDrawOpponentModal}
+		contentStyle={{
+		  flexDirection: 'column',
+		  justifyContent: 'center',
+		  height: '100%'
+		}}
+	  >
+		<View style={{
+		  flexDirection: 'column',
+		  justifyContent: 'center',
+		  alignItems: 'center',
+		  height: '100%'
+		}}>
+		  {icon}
+		  <Text style={styles.paragraphFirst}>
+			{firstText}
+		  </Text>
+		  <Text style={styles.paragraph}>
+			{secondText}
+		  </Text>
+		</View>
+	  </Button>
+	  {!left && <Text variant="titleSmall" style={styles.description}>{description}</Text>}
+	</View>
   )
 }
 
-export default CardComponent;
+export default CardComponentDrawOpponent;

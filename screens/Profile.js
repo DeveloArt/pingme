@@ -11,14 +11,15 @@ import AddPhotoModal from "../components/Modals/AddPhotoModal";
 const Profile = () => {
   const theme = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false)
-
+  const authCtx = useContext(AuthContext);
+  console.log({ authCtx });
   const styles = StyleSheet.create({
     userAccount: {
       flexDirection: "row",
       marginTop: 16,
     },
     avatar: {
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
     },
     userData: {
       marginLeft: 24,

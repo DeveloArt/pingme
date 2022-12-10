@@ -4,6 +4,7 @@ import {Divider} from 'react-native-paper'
 import Screen from "../components/Screen";
 import PingMeIcon from "../assets/Icons/PingMeIcon";
 import NotificationCard from "../components/NotificationCard";
+import setUserNameAndSurrname from "../helpers/setUserNameAndSurrname";
 
 const Notification = () => {
   const [currentMenu, setCurrentMenu] = useState(1)
@@ -57,6 +58,8 @@ const Notification = () => {
 	setCurrentMenu(1)
   }
 
+  const userName = setUserNameAndSurrname('kamil.zielinski@wakacje.pl')
+  console.log('userName', userName)
   return (
     <Screen>
 	  <PingMeIcon style={styles.containerIcon}/>
