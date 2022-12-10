@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AuthContext } from "../contextStore/AuthContext";
-import { ScrollView } from "react-native-web";
+import { ScrollView } from "react-native";
 import { collection, getDocs, query } from "firebase/firestore";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { firestore } from "../firebase/config";
