@@ -38,6 +38,8 @@ const Login = () => {
     },
     text: {
       color: theme.colors.gray,
+      marginTop: 16,
+      lineHeight: 20
     },
     textButton: {
       fontSize: 10,
@@ -51,7 +53,7 @@ const Login = () => {
     },
     welcomeSetionWrapper: {
       paddingTop: 24,
-      paddingBottom: 48,
+      paddingBottom: 32,
     },
   });
 
