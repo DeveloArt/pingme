@@ -2,7 +2,12 @@ import { createContext, useState } from "react";
 
 export const AuthContext = createContext({
   isAuth: false,
+  user: "",
+  allUsers: [],
+  allMatches: [],
   isAuthenticated: (value) => {},
+  getAllMatches: (value) => {},
+  getAllUsers: (value) => {}
 });
 
 function AuthContextProvider({ children }) {

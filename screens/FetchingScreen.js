@@ -37,13 +37,13 @@ const FetchingScreen = () => {
 
   useEffect(() => {
     if (authCtx.user) {
+      getAllUsers().then((data) => authCtx.getAllUsers(data));
+      getAllMatches().then((data) => authCtx.getAllMatches(data));
       navigate("HomeTab");
-      console.log("dupa");
-      getAllUsers.then((data) => authCtx.getAllUsers(data));
-      getAllMatches.then((data) => authCtx.getAllMatches(data));
     } else {
+        getAllUsers().then((data) => authCtx.getAllUsers(data));
+        getAllMatches().then((data) => authCtx.getAllMatches(data));
       navigate("Login");
-      console.log("zupa");
     }
   }, []);
 

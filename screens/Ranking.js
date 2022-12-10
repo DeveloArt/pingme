@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { useTheme, Avatar, Button, Divider } from "react-native-paper";
 import UserPhotoPlug from "../components/SvgIcons/UserPhotoPlug";
@@ -9,6 +9,7 @@ import Screen from "../components/Screen";
 import ScoreIcon from '../assets/Icons/ScoreIcon'
 import PingMeIcon from "../assets/Icons/PingMeIcon";
 import StarIcon from '../assets/Icons/StarIcon';
+import { AuthContext } from '../contextStore/AuthContext';
 
 const rankingPosition = "Twoja pozycja w rankingu: "
 const WinRate = "Twój win rate: "
@@ -17,6 +18,8 @@ const NoRankingtext2 = "Rozegraj minimum 10 meczy aby się w nim znaleźć."
 
 const Ranking = () => {
   const theme = useTheme();
+  const authCtx = useContext(AuthContext)
+  console.log(authCtx.allMatches)
 
   const styles = StyleSheet.create({
     userAccount: {
@@ -170,8 +173,21 @@ const Ranking = () => {
               </View>
             </View>
           </View>
-          <ScrollView style={styles.rank}>
-            <View style={styles.tableCell}>
+          {/* <ScrollView style={styles.rank}>
+          <FlatList style={styles.rank}
+            data={[
+            {playerName: 'Przemysław Kalinowski', result: '3:0', procent: 70},
+            {playerName: 'Kamil Zieliński', result: '2:1'}
+          ]}
+          renderItem={({item}) =>
+              <View style={styles.tableCell}>
+              <Text style={styles.number}>1</Text>
+              <Text style={styles.playerName}>Przemysław Kalinowski</Text>
+              <Text style={styles.number}>70,5%</Text>
+              <Text style={styles.result}>250</Text>
+            </View>
+          /> */}
+            {/* <View style={styles.tableCell}>
             <Text style={styles.number}>1</Text>
               <Text style={styles.playerName}>Przemysław Kalinowski</Text>
               <Text style={styles.number}>70,5%</Text>
@@ -188,8 +204,8 @@ const Ranking = () => {
               <Text style={styles.playerName}>Przemysław Kalinowski</Text>
               <Text style={styles.number}>70,5%</Text>
               <Text style={styles.result}>250</Text>
-            </View>
-          </ScrollView>
+            </View> */}
+          {/* </ScrollView> */}
         </View>
       </SafeAreaView>
     </Screen>
